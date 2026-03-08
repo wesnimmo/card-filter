@@ -51,7 +51,7 @@ export default function CardsPage() {
   }
 
   return (
-    <main className="min-h-screen bg-zinc-900 p-6 text-white">
+    <main className="min-h-screen bg-zinc-800 p-6 text-white">
       <div className="mx-auto flex max-w-5xl flex-col gap-5">
         <header className="flex flex-col gap-1">
           <h1 className="text-2xl font-semibold">Cards Sandbox</h1>

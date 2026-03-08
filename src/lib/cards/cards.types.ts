@@ -5,6 +5,20 @@ export type Category =
   | "artsLiterature"
   | "technology";
 
+export type Region = 
+
+| "southern europe"
+| "western europe"
+| "northern europe"
+
+| "british isles"
+| "eastern europe"
+| "asia minor"
+
+| "middle east"
+| "north africa"
+| "north america";
+
 export type CardType = "player" | "event";
 
 type BaseCard = {
@@ -14,7 +28,7 @@ type BaseCard = {
   image: string;
   categories: Category[];
   dates: string;
-  regions: string[];
+  regions: Region[];
   impact: string;
 };
 
