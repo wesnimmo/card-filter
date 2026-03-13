@@ -8,9 +8,13 @@ export function CardGrid(props: {
   const { cards, onSelectIndex } = props;
 
   return (
-    <div className="flex flex-wrap justify-center gap-6">
+    <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
       {cards.map((card, idx) => (
-        <CardItem key={card.id} card={card} onClick={() => onSelectIndex(idx)} />
+        <CardItem
+          key={card.id}
+          card={card}
+          onClick={() => onSelectIndex(idx)}
+        />
       ))}
     </div>
   );

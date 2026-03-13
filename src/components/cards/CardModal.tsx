@@ -1,7 +1,7 @@
 "use client";
 
 import type { Card } from "@/lib/cards/cards.types";
-import { CardShell } from "./CardShell";
+import { CardDetail } from "./CardDetail";
 
 function wrapIndex(i: number, len: number) {
   if (len <= 0) return 0;
@@ -28,8 +28,8 @@ export function CardModal(props: {
       role="dialog"
       aria-modal="true"
     >
-      <div className="flex w-full max-w-[920px] flex-col items-center">
-        <div className="relative flex w-full justify-center">
+      <div className="flex w-full flex-col items-center">
+        <div className="relative mx-auto w-[395px] max-w-full">
           <button
             type="button"
             onClick={onClose}
@@ -38,17 +38,12 @@ export function CardModal(props: {
             Close
           </button>
 
-          <CardShell
-            key={card.id}
-            card={card}
-            size="modal"
-            showEyeToggle={true}
-          />
+          <CardDetail key={card.id} card={card} />
 
           <button
             type="button"
             onClick={prev}
-            className="absolute left-[-10px] top-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-black/40 px-3 py-2 text-white hover:bg-black/60"
+            className="absolute z-40 left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-black/40 px-3 py-2 text-white hover:bg-black/60"
             aria-label="Previous card"
           >
             ‹
@@ -57,7 +52,7 @@ export function CardModal(props: {
           <button
             type="button"
             onClick={next}
-            className="absolute right-[-10px] top-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-black/40 px-3 py-2 text-white hover:bg-black/60"
+            className="absolute z-40 right-0 top-1/2 translate-x-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-black/40 px-3 py-2 text-white hover:bg-black/60"
             aria-label="Next card"
           >
             ›
@@ -68,6 +63,9 @@ export function CardModal(props: {
           {activeIndex + 1} / {cards.length} • {card.type.toUpperCase()}
         </div>
       </div>
+
+
+      
     </div>
   );
 }

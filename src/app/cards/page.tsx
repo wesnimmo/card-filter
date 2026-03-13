@@ -2,21 +2,12 @@
 
 import { useMemo, useState } from "react";
 import type { Category, TypeFilter } from "@/lib/cards/cards.types";
+import { CATEGORY_LIST, CATEGORY_LABEL, CATEGORY_COLOR } from "@/lib/cards/cards.constants";
 import { mockCards } from "@/lib/cards/cards.mock";
 import { filterCards } from "@/lib/cards/cards.filter";
 import { CardGrid } from "@/components/cards/CardGrid";
 import { CardModal } from "@/components/cards/CardModal";
 
-
-//notice how CATEGORIES is an array making it easy to loop over
-//whereas a Record is an object more complex to loop over
-const CATEGORIES: { key: Category; label: string }[] = [
-  { key: "military", label: "Military" },
-  { key: "government", label: "Government" },
-  { key: "religion", label: "Religion" },
-  { key: "artsLiterature", label: "Arts & Lit" },
-  { key: "technology", label: "Technology" },
-];
 
 export default function CardsPage() {
   const [selectedCategories, setSelectedCategories] = useState<Category[]>([]);
@@ -52,31 +43,35 @@ export default function CardsPage() {
 
   return (
     <main className="min-h-screen bg-zinc-800 p-6 text-white">
-      <div className="mx-auto flex max-w-5xl flex-col gap-5">
+      <div className="mx-auto flex max-w-7xl flex-col gap-5">
         <header className="flex flex-col gap-1">
-          <h1 className="text-2xl font-semibold">Cards Sandbox</h1>
+          <h1 className="text-2xl font-semibold">Julius Caesar Unit Cards</h1>
           <p className="text-sm text-white/70">
             Multi-select category filtering (OR mode) + optional type filter.
           </p>
         </header>
 
         {/* Type filter */}
-        <div className="flex flex-wrap items-center gap-2">
-          <button
-            className="rounded-md border px-3 py-1 text-sm hover:bg-white/10"
-            onClick={clear}
-            type="button"
-          >
-            Clear
-          </button>
+        <section className="flex flex-col gap-3 rounded-xl border border-white/10 bg-black/20 p-4">
+          <div className="flex flex-col gap-1">
+            <h2 className="text-sm font-semibold uppercase tracking-wide text-white/90">
+              Filter Cards
+            </h2>
+            <p className="text-xs text-white/60">
+              Filter by card type or category.
+            </p>
+          </div>
 
-          <div className="ml-auto flex gap-2">
+          {/* Type filters */}
+          <div className="flex flex-wrap items-center gap-2">
             {(["all", "player", "event"] as const).map((t) => (
               <button
                 key={t}
                 className={[
-                  "rounded-md border px-3 py-1 text-sm",
-                  typeFilter === t ? "bg-white/15" : "hover:bg-white/10",
+                  "rounded-md border px-3 py-1 text-sm transition",
+                  typeFilter === t
+                    ? "border-white/30 bg-white/15 text-white"
+                    : "border-white/15 bg-white/5 text-white/80 hover:bg-white/10",
                 ].join(" ")}
                 onClick={() => setTypeFilter(t)}
                 type="button"
@@ -85,30 +80,41 @@ export default function CardsPage() {
                 {t === "all" ? "All" : t === "player" ? "Players" : "Events"}
               </button>
             ))}
-          </div>
-        </div>
-        
 
-        {/* Category filters */}
-        <div className="flex flex-wrap gap-2">
-          {CATEGORIES.map(({ key, label }) => {
-            const on = selectedCategories.includes(key);
-            return (
-              <button
-                key={key}
-                className={[
-                  "rounded-full border px-3 py-1 text-sm",
-                  on ? "bg-white/15" : "hover:bg-white/10",
-                ].join(" ")}
-                onClick={() => toggleCategory(key)}
-                type="button"
-                aria-pressed={on}
-              >
-                {label}
-              </button>
-            );
-          })}
-        </div>
+            <button
+              className="ml-0 rounded-md border border-white/15 px-3 py-1 text-sm text-white/80 transition hover:bg-white/10 md:ml-2"
+              onClick={clear}
+              type="button"
+            >
+              Clear
+            </button>
+          </div>
+
+          {/* Category filters */}
+          <div className="flex flex-wrap gap-2">
+            {CATEGORY_LIST.map((category) => {
+              const isSelected = selectedCategories.includes(category);
+
+              return (
+                <button
+                  key={category}
+                  className={[
+                    "rounded-full px-3 py-1 text-sm font-medium text-white transition",
+                    CATEGORY_COLOR[category],
+                    isSelected
+                      ? "ring-2 ring-white/80 ring-offset-2 ring-offset-zinc-800"
+                      : "opacity-80 hover:opacity-100",
+                  ].join(" ")}
+                  onClick={() => toggleCategory(category)}
+                  type="button"
+                  aria-pressed={isSelected}
+                >
+                  {CATEGORY_LABEL[category]}
+                </button>
+              );
+            })}
+          </div>
+        </section>
 
         <div className="text-sm text-white/70">
           Showing <span className="font-semibold text-white">{filtered.length}</span>{" "}
