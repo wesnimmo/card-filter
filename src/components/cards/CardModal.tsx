@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import type { Card } from "@/lib/cards/cards.types";
 import { CardDetail } from "./CardDetail";
 
@@ -17,6 +18,31 @@ export function CardModal(props: {
   const { cards, activeIndex, onClose, onChangeIndex } = props;
   const card = cards[activeIndex];
 
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        onClose();
+      }
+
+      if (e.key === "ArrowLeft") {
+        onChangeIndex(wrapIndex(activeIndex - 1, cards.length));
+      }
+
+      if (e.key === "ArrowRight") {
+        onChangeIndex(wrapIndex(activeIndex + 1, cards.length));
+      }
+    }
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [activeIndex, cards.length, onClose, onChangeIndex]);
+
   if (!card) return null;
 
   const prev = () => onChangeIndex(wrapIndex(activeIndex - 1, cards.length));
@@ -27,9 +53,13 @@ export function CardModal(props: {
       className="fixed inset-0 z-50 grid place-items-center bg-black/85 p-4"
       role="dialog"
       aria-modal="true"
+      onClick={onClose}
     >
       <div className="flex w-full flex-col items-center">
-        <div className="relative mx-auto w-[395px] max-w-full">
+        <div
+          className="relative mx-auto w-[395px] max-w-full"
+          onClick={(e) => e.stopPropagation()}
+        >
           <button
             type="button"
             onClick={onClose}
@@ -63,9 +93,6 @@ export function CardModal(props: {
           {activeIndex + 1} / {cards.length} • {card.type.toUpperCase()}
         </div>
       </div>
-
-
-      
     </div>
   );
 }
