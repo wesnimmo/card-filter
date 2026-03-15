@@ -68,7 +68,7 @@ export const mockCards: Card[] = [
   {
     id: "player-iron-celtic-champion",
     type: "player",
-    title: "The Gallic Champion: The Iron Tempest",
+    title: "The Gauls: Terror of Rome",
     image: "/img/placeholder/5.png",
     categories: ["military", "technology"], // Mapped 'craftsmanship' to 'technology'
     roles: ["Oathsworn Noble", "Frenzy Warrior", "Master Blacksmith"],
