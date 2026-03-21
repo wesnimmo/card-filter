@@ -1,4 +1,4 @@
-# Interactive Card Filtering UI
+# Interactive Card Filtering UI (Next.js + TypeScript + Testing)
 
 A reusable card interface built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS** demonstrating advanced UI component architecture, multi-select filtering, and modal navigation.
 
@@ -142,6 +142,45 @@ The modal supports multiple interaction patterns:
 This mirrors behavior found in production web applications.
 
 ---
+
+## Testing
+
+This project includes a comprehensive test suite using **Jest** and **React Testing Library**, focusing on user behavior and system reliability.
+
+### Test Coverage
+
+- **Filtering Logic**
+  - No filters (default state)
+  - Type filtering (Players / Events)
+  - Category filtering (single + multi-select)
+  - AND / OR match modes
+  - Combined filters
+  - Edge case: no results
+
+- **UI Components**
+  - CardGrid rendering and click handling
+  - Prop-driven UI updates
+
+- **Page-Level Interactions**
+  - Filter buttons update visible cards
+  - Clear resets state
+  - Modal opens on card click
+
+- **Modal Behavior**
+  - Close via:
+    - Escape key
+    - Backdrop click
+  - Keyboard navigation (← →)
+  - Overlay toggle (eye icon)
+  - Overlay state resets on card navigation
+
+### Testing Philosophy
+
+Tests are written to validate **user behavior**, not implementation details.
+
+- Uses accessible queries (`getByRole`)
+- Avoids brittle assertions
+- Focuses on real user interactions (clicks, keyboard input, UI updates)
 
 ## Future Improvements
 

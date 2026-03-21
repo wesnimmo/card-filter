@@ -115,7 +115,7 @@ export const mockCards: Card[] = [
   {
     id: "event-gallic-wars-the-pen",
     type: "event",
-    title: "The Gallic Wars: The Master of the Narrative",
+    title: "The Gallic Wars",
     image: "/img/placeholder/8.png",
     categories: ["artsLiterature", "government", "military"],
     dates: "58 BCE – 50 BCE",

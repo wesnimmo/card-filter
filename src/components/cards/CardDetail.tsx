@@ -32,6 +32,8 @@ export function CardDetail(props: {card: Card;}) {
           <button
             type="button"
             onClick={() => setShowOverlay(!showOverlay)}
+            aria-label={showOverlay ? "Hide card details" : "Show card details"}
+            aria-pressed={!showOverlay}
             className="absolute right-3 top-3 z-40 rounded-full border border-white/20 bg-black/55 p-2 text-white hover:bg-black/75"
           >
              {showOverlay ? (
