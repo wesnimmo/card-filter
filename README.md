@@ -195,4 +195,4 @@ Tests are written to validate **user behavior**, not implementation details.
 ## Author
 
 Wes Nimmo  
-Frontend Developer
+Frontend Developer Netxjs
