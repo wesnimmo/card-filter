@@ -2,7 +2,7 @@
 
 A reusable card interface built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS** demonstrating advanced UI component architecture, multi-select filtering, and modal navigation.
 
-This project focuses on building a scalable card system with clean separation between **UI components** and **domain logic**, intended as a foundation for a larger educational platform.
+This project focuses on building a scalable card system with clean separation between **UI components** and **domain logic**, intended as a foundation for a larger educational platform I will be building soon.
 
 ---
 
@@ -118,6 +118,18 @@ This separation keeps filtering logic testable and prevents UI components from b
 ---
 
 ## Design Decisions
+
+---
+
+## AI-Assisted Development Workflow
+
+This project incorporates AI-assisted development as part of my ongoing exploration of modern frontend engineering workflows.
+
+During development, I used multiple AI platforms to help brainstorm UI patterns, refine component architecture, cross-examine implementation approaches, and accelerate iteration during prototyping. Final implementation decisions, architecture, testing strategy, accessibility considerations, and UI integration were directed and validated manually throughout development.
+
+Visual assets and concept imagery used during experimentation were also generated and refined using AI image generation tools such as Midjourney.
+
+My goal in incorporating AI tools into the workflow is not to replace engineering decisions, but to explore how AI-assisted ideation can be combined with strong frontend architecture, testing practices, accessibility, and scalable UI design.
 
 ### CardTile vs CardDetail
 

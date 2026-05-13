@@ -13,14 +13,14 @@ describe("CardGrid", () => {
     expect(screen.getByText("The Gauls: Terror of Rome")).toBeInTheDocument();
   });
 
-    test("calls onSelectIndex with the correct index when a card is clicked", () => {
-        const onSelectIndex = jest.fn();
+  test("calls onSelectIndex with the correct index when a card is clicked", () => {
+      const onSelectIndex = jest.fn();
 
-        render(<CardGrid cards={mockCards} onSelectIndex={onSelectIndex} />);
+      render(<CardGrid cards={mockCards} onSelectIndex={onSelectIndex} />);
 
-        fireEvent.click(screen.getByText("The Funeral Oration: The Rhetorical Ambush"));
+      fireEvent.click(screen.getByText("The Funeral Oration: The Rhetorical Ambush"));
 
-        expect(onSelectIndex).toHaveBeenCalledWith(1);
-      });
+      expect(onSelectIndex).toHaveBeenCalledWith(1);
+  });
 
 });
