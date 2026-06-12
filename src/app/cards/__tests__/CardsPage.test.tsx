@@ -38,6 +38,9 @@ describe("CardsPage", () => {
 
       expect(screen.getByRole("dialog")).toBeInTheDocument();
       expect(screen.getAllByText("Julius Caesar: Military Genius").length).toBeGreaterThan(0);
+      expect(screen.getByText("Proconsul")).toBeInTheDocument();
+
+      fireEvent.click(screen.getByRole("button", { name: "Show Dates" }));
       expect(screen.getByText(/50 BCE/i)).toBeInTheDocument();
     });
 

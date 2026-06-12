@@ -15,7 +15,7 @@ export const mockCards: Card[] = [
       "Insulted Ransom Demand"
     ],
     players: ["julius caesar"],
-    impact: "Long before he was a dictator, Caesar displayed terrifying confidence by demanding his own ransom be raised to 50 talents of silver. After treating his captors like subordinates for 38 days, he raised a private navy on his own authority, captured the pirates, and fulfilled his promise to crucify them all—showing his characteristic blend of ruthlessness and calculated 'mercy' by slitting their throats first."
+    impact: "Caesar raised his ransom to fifty talents, dominated his captors for thirty-eight days, raised a fleet, captured the pirates, and crucified them—slitting throats first as promised mercy."
   },
   
   {
@@ -32,7 +32,7 @@ export const mockCards: Card[] = [
       "Sullan Senatorial Dominance"
     ],
     players: ["julius caesar"],
-    impact: "Caesar turned a family funeral into a high-stakes political rally by illegally displaying the wax mask of the outlawed hero Gaius Marius. By publicly claiming descent from the goddess Venus and the Roman kings, he rebranded the 'Populares' faction and signaled his arrival as a fearless challenger to the Senatorial elite."
+    impact: "Caesar turned a family funeral into a political rally by illegally displaying Marius's wax mask, claiming descent from Venus and Rome's kings, and challenging the Senatorial elite."
   },
 
   {
@@ -49,7 +49,7 @@ export const mockCards: Card[] = [
       "Crassus's Tax-Farmer Crisis"
     ],
     players: ["julius caesar", "pompey the great", "crassus"],
-    impact: "A secret 'gentleman’s agreement' that bypassed the Senate to rule Rome from the shadows. By combining Crassus’s gold, Pompey’s legions, and Caesar’s political genius, the three men built an iron ring around the Republic, ensuring that no law passed without their collective 'okay' for nearly a decade."
+    impact: "A secret pact bypassed the Senate as Crassus's gold, Pompey's legions, and Caesar's genius formed an iron ring around the Republic for nearly a decade."
   },
 
   {
@@ -62,7 +62,7 @@ export const mockCards: Card[] = [
     dates: "58 BCE – 50 BCE",
     regions: ["western europe", "southern europe", "northern europe"],
     events: ["The Siege of Alesia", "The Crossing of the Rhine", "The Battle of Pharsalus"],
-    impact: "A master of celeritas (speed) and engineering, Caesar transformed the Roman military into a continental juggernaut. By constructing massive fortifications and bridges in record time, he proved that no terrain—neither the Rhine nor the Gallic forests—could stop Roman hegemony, using his conquest as a springboard to dismantle the Republic."
+    impact: "A master of speed and engineering, Caesar built fortifications and bridges in record time, proving no terrain could stop Roman hegemony and using conquest to dismantle the Republic."
   },
 
   {
@@ -79,7 +79,7 @@ export const mockCards: Card[] = [
       "The Defense of Avaricum", 
       "The Relief of Alesia"
     ],
-    impact: "Armed with iron broadswords and hexagonal shields, Gallic warriors relied on psychological momentum and 'furor Gallicus'—a lightning-fast charge accompanied by the blare of carnyx horns. Their raw physical power frequently shattered the morale of seasoned legionaries, forcing Caesar to rely on superior engineering to survive."
+    impact: "Armed with iron broadswords and hexagonal shields, Gallic warriors used furor Gallicus—lightning charges and carnyx horns—to shatter legionary morale, forcing Caesar to rely on superior engineering."
   },
 
   {
@@ -92,7 +92,7 @@ export const mockCards: Card[] = [
     dates: "55 BCE – 54 BCE",
     regions: ["british isles"],
     events: ["Caesar's First Invasion of Britain", "The Landing at Kent", "The Battle of the Stour"],
-    impact: "At the world's edge, Caesar’s legions met a nightmare in blue. Painted in shimmering glass-tinted dyes and fighting from the tongues of racing chariots, the Britons utilized a 'kinetic' style of warfare that terrified the disciplined Roman infantry and marked the limits of the known world."
+    impact: "At the world's edge, Caesar's legions faced Britons painted in glass-tinted blue dyes, fighting from racing chariots in a kinetic style that terrified disciplined Roman infantry."
   },
 
   {
@@ -109,7 +109,7 @@ export const mockCards: Card[] = [
       "Gallic Relief Army Mobilization"
     ],
     players: ["julius caesar", "vercingetorix", "mark antony"],
-    impact: "At Alesia, Caesar didn't just fight the Gauls; he built a cage for them. In 40 days, his legions moved 2 million cubic feet of earth to create 25 miles of walls and hidden death-traps. Surrounded by 300,000 enemies, Caesar’s engineering turned a siege into a fortress and a fortress into a tomb."
+    impact: "At Alesia, Caesar's legions moved two million cubic feet of earth in forty days, building twenty-five miles of walls to cage three hundred thousand enemies."
   },
 
   {
@@ -126,7 +126,7 @@ export const mockCards: Card[] = [
       "Desire for 'Gloria'"
     ],
     players: ["julius caesar"],
-    impact: "While his legions conquered the land, Caesar’s pen conquered the truth. By writing his 'Commentaries' in the third person, he transformed a decade of illegal slaughter into a masterpiece of Roman destiny. In the flicker of a lamp, he wasn't just recording history—he was inventing it for the voters back in Rome."
+    impact: "While his legions conquered Gaul, Caesar's pen conquered truth—writing his Commentaries in third person to transform a decade of slaughter into propaganda for Rome's voters."
   },
 
   {
@@ -143,7 +143,7 @@ export const mockCards: Card[] = [
       "Starvation of the Mandubii"
     ],
     players: ["julius caesar", "vercingetorix"],
-    impact: "Vercingetorix did not surrender with a whimper, but with a final, silent act of royalty. By casting his weapons into the Roman mud at Caesar’s feet, the King of the Gauls signaled the death of Celtic independence. For Caesar, this was the ultimate triumph; for Gaul, it was the end of an age."
+    impact: "Vercingetorix surrendered by casting his weapons at Caesar's feet, signaling Celtic independence's death—Caesar's ultimate triumph and Gaul's end of an age."
   },
 
   {
@@ -160,7 +160,7 @@ export const mockCards: Card[] = [
       "Threat of Prosecution in Rome"
     ],
     players: ["julius caesar"],
-    impact: "One step changed the world. Facing the choice between political ruin and civil war, Caesar shattered Roman law by leading the 13th Legion across the sacred boundary of the Rubicon. 'Alea Iacta Est'—the die was cast, and the Republic was drowned in the ripples of a shallow stream."
+    impact: "One step changed the world. Caesar led the Thirteenth Legion across the sacred Rubicon, declaring 'the die is cast' and drowning the Republic in civil war."
   },
 
   {
@@ -177,7 +177,7 @@ export const mockCards: Card[] = [
       "Pompey's Choice to Fight in Greece"
     ],
     players: ["julius caesar", "pompey the great", "marcus brutus"],
-    impact: "At Pharsalus, the Republic committed suicide. Caesar’s hardened veterans faced off against the elite youth of Rome in a dust-choked nightmare. 'Strike at the face!' Caesar commanded, knowing the aristocrats feared disfigurement more than death. By sunset, the legendary Pompey was a fugitive and the Senate's power was a memory."
+    impact: "At Pharsalus, Caesar's veterans crushed Pompey's elite youth. By sunset, Pompey was a fugitive and the Senate's power was a memory after the Republic's suicidal battle."
   },
 
   {
@@ -194,7 +194,7 @@ export const mockCards: Card[] = [
       "Violation of Republican Equality"
     ],
     players: ["julius caesar", "marcus brutus", "cassius"],
-    impact: "Rome was built on the hatred of kings, yet here sat a man on a throne of gold. Clad in the robes of a god and granted power without end, Caesar became 'Dictator Perpetuo.' In the hallowed halls of the Senate, the faked devotion of the elite masked the sharpening of twenty-three daggers."
+    impact: "Rome hated kings, yet Caesar sat on a golden throne as Dictator Perpetuo while the Senate's faked devotion masked the sharpening of twenty-three daggers."
   },
   
   {
@@ -211,7 +211,7 @@ export const mockCards: Card[] = [
       "Fear of Hellenistic Monarchy"
     ],
     players: ["julius caesar", "cleopatra vii", "marcus brutus", "cicero"],
-    impact: "To the Roman Senate, Cleopatra wasn't a mistress—she was a 'Witch-Queen' infecting their leader with the desire for absolute monarchy. By bringing an Egyptian 'Princeling' to the heart of the Republic, Caesar didn't just break his marriage vows; he broke the Roman soul and signaled the rise of an Eastern King."
+    impact: "To the Senate, Cleopatra was a Witch-Queen infecting Caesar with monarchy. Her Egyptian court in Rome broke vows and signaled the rise of an Eastern king."
   },
 
   {
@@ -228,7 +228,7 @@ export const mockCards: Card[] = [
       "Senatorial Envy"
     ],
     players: ["julius caesar", "marcus brutus", "cassius", "casca"],
-    impact: "In a frenzy of 23 stabs, the most powerful man in the world was butchered at the feet of his rival's statue. As Caesar looked into the eyes of his protégé Brutus, he saw the end of friendship and the birth of a new, bloodier era—a moment immortalized for centuries in literature and drama."
+    impact: "In a frenzy of twenty-three stabs, Rome's most powerful man fell at his rival's statue. Caesar's gaze on Brutus marked the end of friendship and Republic."
   },
 
   {
@@ -241,7 +241,7 @@ export const mockCards: Card[] = [
     regions: ["southern europe"],
     provocation: ["The Assassination of Caesar", "The Proscriptions", "Republican Resistance"],
     players: ["mark antony", "octavian", "marcus brutus", "cassius"],
-    impact: "On the plains of Philippi, the ghost of Caesar came to claim his due. As Mark Antony’s iron wall crushed the last of the Senators, the dreams of Brutus died in the mud. The Republic was buried; the Empire was born in its blood."
+    impact: "On Philippi's plains, Antony's iron wall crushed the last Senators. Brutus's dreams died in mud as the Republic was buried and the Empire born in blood."
   },
 
   {
@@ -259,7 +259,7 @@ export const mockCards: Card[] = [
       "The First Triumvirate", 
       "The Great Civil War"
     ],
-    impact: "Known as 'The Great,' Pompey expanded Rome’s borders to the Euphrates and professionalized the Navy. His rivalry with Caesar transformed a political disagreement into a global civil war, ultimately failing to protect the Republic from the rise of autocracy."
+    impact: "Pompey expanded Rome to the Euphrates and professionalized the navy. His rivalry with Caesar sparked civil war, ultimately failing to stop autocracy's rise."
   },
 
   {
@@ -276,7 +276,7 @@ export const mockCards: Card[] = [
       "The First Triumvirate's Collapse", 
       "The Battle of Actium"
     ],
-    impact: "The last active ruler of the Ptolemaic Kingdom, Cleopatra leveraged her vast wealth and intellect to preserve Egyptian independence. Her alliances with Caesar and Antony fundamentally reshaped Roman politics, eventually triggering the transition from Republic to Empire."
+    impact: "Cleopatra leveraged Egypt's wealth and intellect to preserve independence. Her alliances with Caesar and Antony reshaped Roman politics and triggered the Republic's fall to Empire."
   },
 
   {
@@ -293,7 +293,7 @@ export const mockCards: Card[] = [
       "The Ides of March",
       "Battle of Philippi"
     ],
-    impact: "A devoted Stoic, Brutus prioritized the Republic's survival over his personal friendship with Caesar. His act of tyrannicide failed to restore democracy, instead triggering a decade of chaos that ultimately solidified the imperial power he sought to destroy."
+    impact: "Brutus prioritized the Republic over friendship with Caesar. His tyrannicide failed to restore democracy, instead triggering chaos that solidified the imperial power he fought."
   },
 
   {
@@ -310,7 +310,7 @@ export const mockCards: Card[] = [
       "The Ides of March", 
       "Battle of Philippi"
     ],
-    impact: "The strategic mind behind Caesar’s assassination, Cassius transformed private resentment into a public revolution. A brilliant military commander, his failure to defeat Octavian and Antony at Philippi ended the Republic's last hope for a return to senatorial rule."
+    impact: "Cassius transformed resentment into revolution behind Caesar's assassination. His failure at Philippi ended the Republic's last hope for a return to senatorial rule."
   },
 
   {
@@ -328,7 +328,7 @@ export const mockCards: Card[] = [
       "Battle of Philippi", 
       "Battle of Actium"
     ],
-    impact: "Caesar's most loyal lieutenant and a brilliant cavalry commander, Antony's oratory and military might avenged Caesar’s death. His ultimate alliance with Cleopatra and his rivalry with Octavian sparked the final war that transformed the Roman Republic into the Empire."
+    impact: "Caesar's loyal lieutenant, Antony avenged his death with oratory and military might. His alliance with Cleopatra and rivalry with Octavian birthed the Empire."
   },
 
   {
@@ -341,7 +341,7 @@ export const mockCards: Card[] = [
     dates: "63 BCE – 14 CE",
     regions: ["western europe", "northern europe", "north africa"],
     events: ["Battle of Mutina", "Second Triumvirate", "Battle of Philippi"],
-    impact: "Only eighteen when Caesar was murdered, Octavian weaponized his great-uncle’s name to seize control of the army. By ruthlessly outmaneuvering both the Senate and Mark Antony, he ended a century of civil war to become Augustus, Rome's first Emperor."
+    impact: "Eighteen when Caesar died, Octavian weaponized his name to seize the army, outmaneuvering Senate and Antony to end civil war and become Rome's first Emperor."
   },
 
 
