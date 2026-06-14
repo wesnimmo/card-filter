@@ -1,47 +1,52 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { Card } from "@/lib/cards/cards.types";
-import { CATEGORY_LABEL, CATEGORY_COLOR } from "@/lib/cards/cards.constants";
+import type { Card, PlayerId, Region } from "@/lib/cards/cards.types";
+import {
+  CATEGORY_LABEL,
+  CATEGORY_COLOR,
+  PLAYER_CARD_ID,
+  PLAYER_LABEL,
+  REGION_LABEL,
+} from "@/lib/cards/cards.constants";
 
 type Panel =
-  | { label: string; kind: "chips"; values: string[] }
-  | { label: string; kind: "text"; text: string };
-
-function titleCase(value: string) {
-  return value.replace(/\b\w/g, (c) => c.toUpperCase());
-}
+  | { label: string; kind: "text"; text: string }
+  | { label: string; kind: "piped"; values: string[] }
+  | { label: string; kind: "regions"; values: Region[] }
+  | { label: string; kind: "players"; values: PlayerId[] }
+  | { label: string; kind: "events"; values: string[] };
 
 function buildPanels(card: Card): Panel[] {
   const dates: Panel = { label: "Dates", kind: "text", text: card.dates };
-  const regions: Panel = {
-    label: "Regions",
-    kind: "chips",
-    values: card.regions.map(titleCase),
-  };
+  const regions: Panel = { label: "Regions", kind: "regions", values: card.regions };
   const impact: Panel = { label: "Impact", kind: "text", text: card.impact };
 
   if (card.type === "event") {
     return [
-      { label: "Provocation", kind: "chips", values: card.provocation },
+      { label: "Provocation", kind: "piped", values: card.provocation },
       dates,
-      { label: "Players", kind: "chips", values: card.players.map(titleCase) },
+      { label: "Players", kind: "players", values: card.players },
       regions,
       impact,
     ];
   }
 
   return [
-    { label: "Roles", kind: "chips", values: card.roles },
+    { label: "Roles", kind: "piped", values: card.roles },
     dates,
-    { label: "Events", kind: "chips", values: card.events },
+    { label: "Events", kind: "events", values: card.events },
     regions,
     impact,
   ];
 }
 
-export function CardDetail(props: { card: Card }) {
-  const { card } = props;
+export function CardDetail(props: {
+  card: Card;
+  onRegionSelect?: (region: Region) => void;
+  onPlayerSelect?: (playerId: PlayerId) => void;
+}) {
+  const { card, onRegionSelect, onPlayerSelect } = props;
 
   const panels = useMemo(() => buildPanels(card), [card]);
   const [activePanel, setActivePanel] = useState(0);
@@ -56,11 +61,11 @@ export function CardDetail(props: { card: Card }) {
 
   return (
     <div
-      className="flex h-[485px] w-full max-w-[395px] overflow-hidden rounded-xl pb-3 pr-3 pt-3 shadow-lg"
+      className="flex aspect-[395/485] w-full max-w-[395px] max-h-[90dvh] overflow-hidden rounded-xl pb-2 pr-2 pt-2 shadow-lg sm:pb-3 sm:pr-3 sm:pt-3"
       style={{ backgroundColor: stockColor }}
     >
-      <div className="flex w-7 flex-shrink-0 items-start justify-center pt-6">
-        <span className="text-[13px] font-bold tracking-[0.25em] text-zinc-300 opacity-80 [writing-mode:vertical-rl]">
+      <div className="flex w-6 shrink-0 items-start justify-center pt-4 sm:w-7 sm:pt-6">
+        <span className="text-[11px] font-bold tracking-[0.22em] text-zinc-300 opacity-80 [writing-mode:vertical-rl] sm:text-[13px] sm:tracking-[0.25em]">
           {card.type.toUpperCase()}
         </span>
       </div>
@@ -77,7 +82,7 @@ export function CardDetail(props: { card: Card }) {
           onClick={() => setShowOverlay((v) => !v)}
           aria-label={showOverlay ? "Hide card details" : "Show card details"}
           aria-pressed={!showOverlay}
-          className="absolute right-3 top-3 z-40 rounded-full border border-white/20 bg-black/55 p-2 text-white transition hover:bg-black/75"
+          className="absolute right-2 top-2 z-40 rounded-full border border-white/20 bg-black/55 p-1.5 text-white transition hover:bg-black/75 sm:right-3 sm:top-3 sm:p-2"
         >
           {showOverlay ? (
             <svg
@@ -117,8 +122,8 @@ export function CardDetail(props: { card: Card }) {
             showOverlay ? "opacity-100" : "pointer-events-none opacity-0"
           }`}
         >
-          <div className="absolute left-4 right-0 top-2 rounded-l-md bg-black/55 px-3 py-2 text-white backdrop-blur-[1px]">
-            <h2 className="pr-10 text-[21px] font-bold leading-tight text-balance">
+          <div className="absolute left-3 right-1 top-2 rounded-l-md bg-black/55 px-2 py-1 text-white backdrop-blur-[1px] sm:left-4 sm:right-0">
+            <h2 className="truncate pr-8 text-[18px] font-bold leading-tight whitespace-nowrap sm:pr-10 sm:text-[21px] md:text-[23px]">
               {card.title}
             </h2>
             <div className="mt-1 flex flex-wrap gap-1">
@@ -133,31 +138,103 @@ export function CardDetail(props: { card: Card }) {
             </div>
           </div>
 
-          <div className="absolute inset-x-3 bottom-3 rounded-xl bg-black/55 px-4 pb-9 pt-3 text-white backdrop-blur-[1px]">
-            <div className="mb-3 inline-block border-b-2 border-white pb-1 text-[15px] font-semibold">
+          <div className="absolute bottom-2 left-3 right-1 rounded-l-xl bg-black/55 px-2 pb-7 pt-1 text-white backdrop-blur-[1px] sm:left-4 sm:right-0">
+            <div className="mb-2 inline-block border-b-4 border-white pb-0.5 text-[14px] font-semibold sm:text-[16px]">
               {panel.label}
             </div>
 
-            <div className="flex min-h-[88px] items-start">
-              {panel.kind === "chips" ? (
-                <div className="flex flex-wrap gap-2">
-                  {panel.values.map((value) => (
-                    <span
-                      key={value}
-                      className="rounded-full border border-white/25 bg-white/10 px-3 py-1 text-[13px] font-light"
-                    >
-                      {value}
-                    </span>
-                  ))}
-                </div>
-              ) : (
-                <p className="text-[15px] font-light leading-relaxed text-pretty">
+            <div className="flex min-h-[72px] items-start">
+              {panel.kind === "text" && (
+                <p className="text-[13px] font-light leading-relaxed text-pretty sm:text-[15px]">
                   {panel.text}
                 </p>
               )}
+
+              {panel.kind === "piped" && (
+                <p className="flex flex-wrap items-center gap-y-1 text-[13px] font-light leading-relaxed text-pretty sm:text-[15px]">
+                  {panel.values.map((value, i) => (
+                    <span key={value} className="inline-flex items-center">
+                      {i > 0 && (
+                        <span
+                          aria-hidden
+                          className="mx-2 inline-block h-[1.1em] w-[3px] shrink-0 rounded-full bg-white/75"
+                        />
+                      )}
+                      {value}
+                    </span>
+                  ))}
+                </p>
+              )}
+
+              {panel.kind === "events" && (
+                <div className="flex flex-wrap gap-1.5">
+                  {panel.values.map((event) => (
+                    <span
+                      key={event}
+                      className="rounded-full border border-white/40 bg-white/15 px-2 py-0.5 text-[14px] font-light"
+                    >
+                      {event}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {panel.kind === "regions" && (
+                <div className="flex flex-wrap gap-1.5">
+                  {panel.values.map((region) =>
+                    onRegionSelect ? (
+                      <button
+                        key={region}
+                        type="button"
+                        onClick={() => onRegionSelect(region)}
+                        className="rounded-full border border-white/40 bg-white/15 px-2 py-0.5 text-[14px] font-light transition hover:border-white/60 hover:bg-white/25"
+                      >
+                        {REGION_LABEL[region]}
+                      </button>
+                    ) : (
+                      <span
+                        key={region}
+                        className="rounded-full border border-white/25 bg-white/10 px-1 py-0.5 text-[14px] font-light"
+                      >
+                        {REGION_LABEL[region]}
+                      </span>
+                    )
+                  )}
+                </div>
+              )}
+
+              {panel.kind === "players" && (
+                <div className="flex flex-wrap gap-1.5">
+                  {panel.values.map((playerId) => {
+                    const hasCard = Boolean(PLAYER_CARD_ID[playerId]);
+
+                    if (hasCard && onPlayerSelect) {
+                      return (
+                        <button
+                          key={playerId}
+                          type="button"
+                          onClick={() => onPlayerSelect(playerId)}
+                          className="rounded-full border border-white/40 bg-white/16 px-2 py-0.5 text-[14px] font-light transition hover:border-white/60 hover:bg-white/25"
+                        >
+                          {PLAYER_LABEL[playerId]}
+                        </button>
+                      );
+                    }
+
+                    return (
+                      <span
+                        key={playerId}
+                        className="rounded-full border border-white/25 bg-white/10 px-1 py-0.5 text-[14px] font-light"
+                      >
+                        {PLAYER_LABEL[playerId]}
+                      </span>
+                    );
+                  })}
+                </div>
+              )}
             </div>
 
-            <div className="absolute inset-x-0 bottom-3 flex items-center justify-center gap-2">
+            <div className="absolute inset-x-0 bottom-2 flex items-center justify-center gap-2">
               {panels.map((p, i) => (
                 <button
                   key={p.label}

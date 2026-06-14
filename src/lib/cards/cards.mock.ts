@@ -4,7 +4,7 @@ export const mockCards: Card[] = [
   {
     id: "event-cilician-pirate-capture",
     type: "event",
-    title: "Capture by Cilician Pirates: The Ransomed King",
+    title: "Cilician Pirate Capture",
     image: "/img/placeholder/1.png",
     categories: ["military", "artsLiterature", "government"],
     dates: "75 BCE",
@@ -21,7 +21,7 @@ export const mockCards: Card[] = [
   {
     id: "event-funeral-oration-marius",
     type: "event",
-    title: "The Funeral Oration: The Rhetorical Ambush",
+    title: "Funeral Oration Ambush",
     image: "/img/placeholder/2.png",
     categories: ["government", "religion", "artsLiterature"],
     dates: "69 BCE",
@@ -38,7 +38,7 @@ export const mockCards: Card[] = [
   {
     id: "event-first-triumvirate-scheme",
     type: "event",
-    title: "The First Triumvirate: The Three-Headed Monster",
+    title: "First Triumvirate Pact",
     image: "/img/placeholder/3.png",
     categories: ["government", "religion"],
     dates: "60 BCE",
@@ -55,20 +55,20 @@ export const mockCards: Card[] = [
   {
     id: "player-caesar-military-genius",
     type: "player",
-    title: "Julius Caesar: Military Genius",
+    title: "Caesar: Military Genius",
     image: "/img/placeholder/4.png",
     categories: ["military", "government", "technology"],
     roles: ["Proconsul", "Military Engineer", "Master Strategist"],
     dates: "58 BCE – 50 BCE",
     regions: ["western europe", "southern europe", "northern europe"],
     events: ["The Siege of Alesia", "The Crossing of the Rhine", "The Battle of Pharsalus"],
-    impact: "A master of speed and engineering, Caesar built fortifications and bridges in record time, proving no terrain could stop Roman hegemony and using conquest to dismantle the Republic."
+    impact: "Charismatic political tactician. Military genius whose tactics are still studied and taught to this day. His decision to march his Army on Rome sparked civil war, and ended the republic."
   },
 
   {
     id: "player-iron-celtic-champion",
     type: "player",
-    title: "The Gauls: Terror of Rome",
+    title: "Gauls: Terror of Rome",
     image: "/img/placeholder/5.png",
     categories: ["military", "technology"], // Mapped 'craftsmanship' to 'technology'
     roles: ["Oathsworn Noble", "Frenzy Warrior", "Master Blacksmith"],
@@ -85,7 +85,7 @@ export const mockCards: Card[] = [
   {
     id: "player-blue-briton-barbarian",
     type: "player",
-    title: "The Blue Briton: The Terror of Albion",
+    title: "Blue Briton Warriors",
     image: "/img/placeholder/6.png",
     categories: ["military", "artsLiterature"],
     roles: ["Charioteer", "Tribal Noble", "Kinetic Warrior"],
@@ -98,7 +98,7 @@ export const mockCards: Card[] = [
   {
     id: "event-siege-of-alesia-iron-ring",
     type: "event",
-    title: "The Siege of Alesia: The Iron Ring",
+    title: "Siege of Alesia",
     image: "/img/placeholder/7.png",
     categories: ["military", "technology", "government"],
     dates: "September 52 BCE",
@@ -115,7 +115,7 @@ export const mockCards: Card[] = [
   {
     id: "event-gallic-wars-the-pen",
     type: "event",
-    title: "The Gallic Wars",
+    title: "Gallic Wars",
     image: "/img/placeholder/8.png",
     categories: ["artsLiterature", "government", "military"],
     dates: "58 BCE – 50 BCE",
@@ -132,7 +132,7 @@ export const mockCards: Card[] = [
   {
     id: "event-vercingetorix-surrender-alesia",
     type: "event",
-    title: "The King’s Submission: The Fall of Alesia",
+    title: "Alesia Surrender",
     image: "/img/placeholder/9.png",
     categories: ["military", "government"],
     dates: "September 52 BCE",
@@ -149,7 +149,7 @@ export const mockCards: Card[] = [
   {
     id: "event-crossing-the-rubicon",
     type: "event",
-    title: "Crossing the Rubicon: The Die is Cast",
+    title: "Crossing the Rubicon",
     image: "/img/placeholder/10.png",
     categories: ["military", "government", "religion"],
     dates: "January 10, 49 BCE",
@@ -166,7 +166,7 @@ export const mockCards: Card[] = [
   {
     id: "event-battle-of-pharsalus",
     type: "event",
-    title: "The Battle of Pharsalus: The Broken Eagle",
+    title: "Battle of Pharsalus",
     image: "/img/placeholder/11.png",
     categories: ["military", "government"],
     dates: "August 9, 48 BCE",
@@ -183,7 +183,7 @@ export const mockCards: Card[] = [
   {
     id: "event-dictator-perpetuo",
     type: "event",
-    title: "Dictator for Life: The Gilded Cage",
+    title: "Dictator for Life",
     image: "/img/placeholder/12.png",
     categories: ["government", "religion"],
     dates: "Early 44 BCE",
@@ -200,7 +200,7 @@ export const mockCards: Card[] = [
   {
     id: "event-cleopatra-caesar-scandal",
     type: "event",
-    title: "The Shadow of the Nile: The Queen in Rome",
+    title: "Cleopatra in Rome",
     image: "/img/placeholder/13.png",
     categories: ["government", "religion"],
     dates: "46 BCE – 44 BCE",
@@ -217,7 +217,7 @@ export const mockCards: Card[] = [
   {
     id: "event-ides-of-march-23-stabs",
     type: "event",
-    title: "The Ides of March: 23 Stabs of Liberty",
+    title: "Ides of March",
     image: "/img/placeholder/14.png",
     categories: ["government", "artsLiterature"],
     dates: "March 15, 44 BCE",
@@ -234,7 +234,7 @@ export const mockCards: Card[] = [
   {
     id: "event-battle-of-philippi",
     type: "event",
-    title: "The Battle of Philippi: The Shadow’s Vengeance",
+    title: "Battle of Philippi",
     image: "/img/placeholder/15.png",
     categories: ["military", "government"],
     dates: "42 BCE",
@@ -247,7 +247,7 @@ export const mockCards: Card[] = [
   {
     id: "player-pompey-the-great",
     type: "player",
-    title: "Pompey the Great: The Aging Lion",
+    title: "Pompey the Great",
     image: "/img/placeholder/16.png",
     categories: ["military", "government"],
     roles: ["Consul", "General", "Admiral", "The Teenage Butcher"],
@@ -265,7 +265,7 @@ export const mockCards: Card[] = [
   {
     id: "player-cleopatra-last-pharaoh",
     type: "player",
-    title: "Cleopatra VII: The Last Pharaoh",
+    title: "Cleopatra: Last Pharaoh",
     image: "/img/placeholder/17.png",
     categories: ["government", "military", "artsLiterature"],
     roles: ["Queen of Egypt (Pharaoh)", "Diplomat", "Naval Commander"],
@@ -282,7 +282,7 @@ export const mockCards: Card[] = [
   {
     id: "player-brutus-tragic-liberator",
     type: "player",
-    title: "Marcus Brutus: The Tragic Liberator",
+    title: "Brutus: Tragic Liberator",
     image: "/img/placeholder/18.png",
     categories: ["government", "military"],
     roles: ["Praetor", "Senator", "Assassin", "The Last of the Romans"],
@@ -299,7 +299,7 @@ export const mockCards: Card[] = [
   {
     id: "player-cassius-architect",
     type: "player",
-    title: "Cassius: The Architect of Death",
+    title: "Cassius: Death's Architect",
     image: "/img/placeholder/19.png",
     categories: ["government", "military"],
     roles: ["Senator", "General", "Assassin", "The Last Roman"],
@@ -316,7 +316,7 @@ export const mockCards: Card[] = [
   {
     id: "player-mark-antony-sword",
     type: "player",
-    title: "Mark Antony: The Sword of Caesar",
+    title: "Antony: Caesar's Sword",
     image: "/img/placeholder/20.png",
     categories: ["military", "government"],
     roles: ["Consul", "General", "Triumvir", "Master of the Horse"],
@@ -334,7 +334,7 @@ export const mockCards: Card[] = [
   {
     id: "player-octavian-heir",
     type: "player",
-    title: "Octavian: The Vengeful Heir",
+    title: "Octavian: Vengeful Heir",
     image: "/img/placeholder/21.png", // Assuming 21 based on your note
     categories: ["government", "military"],
     roles: ["Caesar’s Heir", "Triumvir", "General", "Son of a God"],

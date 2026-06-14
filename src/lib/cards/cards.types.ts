@@ -19,12 +19,25 @@ export type Region =
 | "north africa"
 | "north america";
 
+export type PlayerId =
+  | "julius caesar"
+  | "pompey the great"
+  | "crassus"
+  | "vercingetorix"
+  | "mark antony"
+  | "marcus brutus"
+  | "cassius"
+  | "cleopatra vii"
+  | "cicero"
+  | "casca"
+  | "octavian";
+
 export type CardType = "player" | "event";
 
 type BaseCard = {
   id: string;
   type: CardType;
-  title: string;
+  title: string; // Headline: 4 words or fewer
   image: string;
   categories: Category[];
   dates: string;
@@ -35,7 +48,7 @@ type BaseCard = {
 export type EventCard = BaseCard & {
   type: "event";
   provocation: string[];
-  players: string[];
+  players: PlayerId[];
 };
 
 export type PlayerCard = BaseCard & {

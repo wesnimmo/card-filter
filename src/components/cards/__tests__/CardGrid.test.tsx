@@ -8,9 +8,9 @@ describe("CardGrid", () => {
 
     render(<CardGrid cards={mockCards} onSelectIndex={() => {}} />);
 
-    expect(screen.getByText("The First Triumvirate: The Three-Headed Monster")).toBeInTheDocument();
-    expect(screen.getByText("Julius Caesar: Military Genius")).toBeInTheDocument();
-    expect(screen.getByText("The Gauls: Terror of Rome")).toBeInTheDocument();
+    expect(screen.getByText("First Triumvirate Pact")).toBeInTheDocument();
+    expect(screen.getByText("Caesar: Military Genius")).toBeInTheDocument();
+    expect(screen.getByText("Gauls: Terror of Rome")).toBeInTheDocument();
   });
 
   test("calls onSelectIndex with the correct index when a card is clicked", () => {
@@ -18,7 +18,7 @@ describe("CardGrid", () => {
 
       render(<CardGrid cards={mockCards} onSelectIndex={onSelectIndex} />);
 
-      fireEvent.click(screen.getByText("The Funeral Oration: The Rhetorical Ambush"));
+      fireEvent.click(screen.getByText("Funeral Oration Ambush"));
 
       expect(onSelectIndex).toHaveBeenCalledWith(1);
   });

@@ -1,15 +1,23 @@
-import type { Card, Category, MatchMode, TypeFilter } from "./cards.types";
+import type { Card, Category, MatchMode, Region, TypeFilter } from "./cards.types";
 
 export function filterCards(args: {
   cards: Card[];
   selectedCategories: Category[];
+  selectedRegions: Region[];
   matchMode: MatchMode;
   typeFilter: TypeFilter;
 }): Card[] {
-  const { cards, selectedCategories, matchMode, typeFilter } = args;
+  const { cards, selectedCategories, selectedRegions, matchMode, typeFilter } = args;
 
   return cards.filter((card) => {
     if (typeFilter !== "all" && card.type !== typeFilter) return false;
+
+    if (
+      selectedRegions.length > 0 &&
+      !selectedRegions.some((region) => card.regions.includes(region))
+    ) {
+      return false;
+    }
     //if one side of && is false then The code does NOT 'return false' and stop
     //  it proceeds down cause there was NO RETURN
     //gaurd clause- stop bad data from proceeding further
