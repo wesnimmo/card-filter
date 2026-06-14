@@ -9,6 +9,7 @@ describe("filterCards", () => {
         const result = filterCards({
           cards: mockCards,
           selectedCategories: [],
+          selectedRegions: [],
           matchMode: "any",
           typeFilter: "all",
         });
@@ -21,6 +22,7 @@ describe("filterCards", () => {
         const result = filterCards({
           cards: mockCards,
           selectedCategories: [],
+          selectedRegions: [],
           matchMode: "any",
           typeFilter: "player",
         });
@@ -33,6 +35,7 @@ describe("filterCards", () => {
       const result = filterCards({
         cards: mockCards,
         selectedCategories: ["military"],
+        selectedRegions: [],
         matchMode: "any",
         typeFilter: "all",
       });
@@ -47,6 +50,7 @@ describe("filterCards", () => {
       const result = filterCards({
         cards: mockCards,
         selectedCategories: ["military", "government"],
+        selectedRegions: [],
         matchMode: "any",
         typeFilter: "all",
       });
@@ -66,6 +70,7 @@ describe("filterCards", () => {
       const result = filterCards({
         cards: mockCards,
         selectedCategories: ["military", "government"],
+        selectedRegions: [],
         matchMode: "all",
         typeFilter: "all",
       });
@@ -85,6 +90,7 @@ describe("filterCards", () => {
       const result = filterCards({
         cards: mockCards,
         selectedCategories: ["military"],
+        selectedRegions: [],
         matchMode: "any",
         typeFilter: "player",
       });
@@ -106,11 +112,26 @@ describe("filterCards", () => {
       const result = filterCards({
         cards: mockCards,
         selectedCategories: ["religion"],
+        selectedRegions: [],
         matchMode: "all",
         typeFilter: "player",
       });
 
       expect(result).toEqual([]);
+    });
+    test("filters cards by region", () => {
+      const result = filterCards({
+        cards: mockCards,
+        selectedCategories: [],
+        selectedRegions: ["british isles"],
+        matchMode: "any",
+        typeFilter: "all",
+      });
+
+      expect(result.length).toBeGreaterThan(0);
+      expect(
+        result.every((card) => card.regions.includes("british isles"))
+      ).toBe(true);
     });
 
 

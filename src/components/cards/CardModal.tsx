@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import type { Card } from "@/lib/cards/cards.types";
+import type { Card, PlayerId, Region } from "@/lib/cards/cards.types";
 import { CardDetail } from "./CardDetail";
 
 function wrapIndex(i: number, len: number) {
@@ -14,8 +14,10 @@ export function CardModal(props: {
   activeIndex: number;
   onClose: () => void;
   onChangeIndex: (nextIndex: number) => void;
+  onRegionSelect?: (region: Region) => void;
+  onPlayerSelect?: (playerId: PlayerId) => void;
 }) {
-  const { cards, activeIndex, onClose, onChangeIndex } = props;
+  const { cards, activeIndex, onClose, onChangeIndex, onRegionSelect, onPlayerSelect } = props;
   const card = cards[activeIndex];
 
   useEffect(() => {
@@ -50,30 +52,35 @@ export function CardModal(props: {
 
   return (
     <div
-      className="fixed inset-0 z-50 grid place-items-center bg-black/85 p-4"
+      className="fixed inset-0 z-50 grid place-items-center overflow-x-hidden overflow-y-auto bg-black/85 p-3 sm:p-4"
       role="dialog"
       aria-modal="true"
       onClick={onClose}
     >
-      <div className="flex w-full flex-col items-center">
+      <div className="flex w-full min-w-0 max-w-[395px] flex-col items-center">
+        <button
+          type="button"
+          onClick={onClose}
+          className="mb-2 self-end rounded-md border border-white/20 bg-black/40 px-3 py-1 text-sm text-white hover:bg-black/60"
+        >
+          Close
+        </button>
+
         <div
-          className="relative mx-auto w-[395px] max-w-full"
+          className="relative w-full min-w-0"
           onClick={(e) => e.stopPropagation()}
         >
-          <button
-            type="button"
-            onClick={onClose}
-            className="absolute -top-12 right-0 rounded-md border border-white/20 bg-black/40 px-3 py-1 text-sm text-white hover:bg-black/60"
-          >
-            Close
-          </button>
-
-          <CardDetail key={card.id} card={card} />
+          <CardDetail
+            key={card.id}
+            card={card}
+            onRegionSelect={onRegionSelect}
+            onPlayerSelect={onPlayerSelect}
+          />
 
           <button
             type="button"
             onClick={prev}
-            className="absolute z-40 left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-black/40 px-3 py-2 text-white hover:bg-black/60"
+            className="absolute left-1 top-1/2 z-40 -translate-y-1/2 rounded-full border border-white/20 bg-black/60 px-2.5 py-2 text-white hover:bg-black/80 sm:left-0 sm:-translate-x-1/2 sm:bg-black/40 sm:px-3"
             aria-label="Previous card"
           >
             ‹
@@ -82,7 +89,7 @@ export function CardModal(props: {
           <button
             type="button"
             onClick={next}
-            className="absolute z-40 right-0 top-1/2 translate-x-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-black/40 px-3 py-2 text-white hover:bg-black/60"
+            className="absolute right-1 top-1/2 z-40 -translate-y-1/2 rounded-full border border-white/20 bg-black/60 px-2.5 py-2 text-white hover:bg-black/80 sm:right-0 sm:translate-x-1/2 sm:bg-black/40 sm:px-3"
             aria-label="Next card"
           >
             ›

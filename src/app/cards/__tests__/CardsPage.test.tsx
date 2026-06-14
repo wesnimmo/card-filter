@@ -7,44 +7,42 @@ describe("CardsPage", () => {
 
         fireEvent.click(screen.getByRole("button", { name: "Players" }));
 
-        expect(screen.getByText("Julius Caesar: Military Genius")).toBeInTheDocument();
-        expect(screen.queryByText("The First Triumvirate: The Three-Headed Monster")).not.toBeInTheDocument();
-        expect(screen.queryByText("The Gallic Wars")).not.toBeInTheDocument();
+        expect(screen.getByText("Caesar: Military Genius")).toBeInTheDocument();
+        expect(screen.queryByText("First Triumvirate Pact")).not.toBeInTheDocument();
+        expect(screen.queryByText("Gallic Wars")).not.toBeInTheDocument();
     });
 
-    test('clicking "Clear" resets filters and shows all cards', () => {
+    test('clicking "Clear filters" resets sidebar filters and shows all cards', () => {
         render(<CardsPage />);
 
-        // Step 1: Apply a filter (Players)
-        fireEvent.click(screen.getByRole("button", { name: "Players" }));
+        fireEvent.click(screen.getByRole("button", { name: "Military" }));
 
-        // Confirm filter worked (events should be gone)
-        expect(screen.queryByText("The First Triumvirate: The Three-Headed Monster")).not.toBeInTheDocument();
-        expect(screen.getByText("Julius Caesar: Military Genius")).toBeInTheDocument();
+        expect(screen.queryByText("First Triumvirate Pact")).not.toBeInTheDocument();
 
-        // Step 2: Click Clear
-        fireEvent.click(screen.getByRole("button", { name: "Clear" }));
+        fireEvent.click(screen.getByRole("button", { name: "Clear filters" }));
 
-        // Step 3: All cards should be visible again
-        expect(screen.getByText("The First Triumvirate: The Three-Headed Monster")).toBeInTheDocument();
-        expect(screen.getByText("Julius Caesar: Military Genius")).toBeInTheDocument();
-        expect(screen.getByText("The Gallic Wars")).toBeInTheDocument();
+        expect(screen.getByText("First Triumvirate Pact")).toBeInTheDocument();
+        expect(screen.getByText("Caesar: Military Genius")).toBeInTheDocument();
+        expect(screen.getByText("Gallic Wars")).toBeInTheDocument();
     });
 
     test("clicking a card opens the modal with the correct card content", () => {
       render(<CardsPage />);
 
-      fireEvent.click(screen.getByText("Julius Caesar: Military Genius"));
+      fireEvent.click(screen.getByText("Caesar: Military Genius"));
 
       expect(screen.getByRole("dialog")).toBeInTheDocument();
-      expect(screen.getAllByText("Julius Caesar: Military Genius").length).toBeGreaterThan(0);
+      expect(screen.getAllByText("Caesar: Military Genius").length).toBeGreaterThan(0);
+      expect(screen.getByText(/Proconsul/)).toBeInTheDocument();
+
+      fireEvent.click(screen.getByRole("button", { name: "Show Dates" }));
       expect(screen.getByText(/50 BCE/i)).toBeInTheDocument();
     });
 
     test("pressing Escape closes the modal", () => {
       render(<CardsPage />);
 
-      fireEvent.click(screen.getByText("Julius Caesar: Military Genius"));
+      fireEvent.click(screen.getByText("Caesar: Military Genius"));
 
       expect(screen.getByRole("dialog")).toBeInTheDocument();
 
@@ -57,7 +55,7 @@ describe("CardsPage", () => {
       render(<CardsPage />);
 
       // Open modal
-      fireEvent.click(screen.getByText("Julius Caesar: Military Genius"));
+      fireEvent.click(screen.getByText("Caesar: Military Genius"));
 
       const dialog = screen.getByRole("dialog");
       expect(dialog).toBeInTheDocument();
@@ -72,21 +70,21 @@ describe("CardsPage", () => {
     test("pressing ArrowRight shows the next card in the modal", () => {
       render(<CardsPage />);
 
-      fireEvent.click(screen.getByText("The First Triumvirate: The Three-Headed Monster"));
+      fireEvent.click(screen.getByText("First Triumvirate Pact"));
 
       expect(screen.getByRole("dialog")).toBeInTheDocument();
-      expect(screen.getAllByText("The First Triumvirate: The Three-Headed Monster").length).toBeGreaterThan(0);
+      expect(screen.getAllByText("First Triumvirate Pact").length).toBeGreaterThan(0);
 
       fireEvent.keyDown(window, { key: "ArrowRight" });
 
-      expect(screen.getAllByText("Julius Caesar: Military Genius").length).toBeGreaterThan(0);
+      expect(screen.getAllByText("Caesar: Military Genius").length).toBeGreaterThan(0);
     });
 
 
     test("clicking the eye toggle switches the modal overlay toggle state", () => {
       render(<CardsPage />);
 
-      fireEvent.click(screen.getByText("Julius Caesar: Military Genius"));
+      fireEvent.click(screen.getByText("Caesar: Military Genius"));
 
       expect(screen.getByRole("dialog")).toBeInTheDocument();
 
@@ -108,7 +106,7 @@ describe("CardsPage", () => {
       render(<CardsPage />);
 
       // Open modal
-      fireEvent.click(screen.getByText("The First Triumvirate: The Three-Headed Monster"));
+      fireEvent.click(screen.getByText("First Triumvirate Pact"));
 
       // Toggle overlay OFF
       fireEvent.click(
