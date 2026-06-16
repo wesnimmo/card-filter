@@ -26,7 +26,7 @@ export function CardTile(props: { card: Card }) {
         />
 
         <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/95 via-black/45 to-transparent p-1.5 pt-4 sm:p-2 sm:pt-6">
-          <h2 className="truncate text-[10px] font-bold leading-tight whitespace-nowrap text-white sm:text-[11px] md:text-[12px]">
+          <h2 className="truncate text-[12px] font-bold leading-tight whitespace-nowrap text-white sm:text-[13px] md:text-[14px]">
             {card.title}
           </h2>
         </div>

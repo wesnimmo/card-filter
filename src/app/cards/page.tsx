@@ -110,7 +110,7 @@ export default function CardsPage() {
         <div className="flex flex-col gap-5 lg:flex-row lg:items-start">
           {/* Main: type filter + card grid */}
           <div className="min-w-0 flex-1">
-            <div className="mb-3 flex flex-wrap items-center gap-3">
+            <div className="mb-4 flex flex-wrap items-center gap-3">
               <div
                 className="inline-flex rounded-lg border border-white/15 bg-black/20 p-0.5"
                 role="group"
