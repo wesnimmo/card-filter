@@ -2,10 +2,17 @@ import type { Card } from "@/lib/cards/cards.types";
 
 export function CardTile(props: { card: Card }) {
   const { card } = props;
+  const stockColor = card.type === "event" ? "#4A4A4A" : "#000000";
 
   return (
-    <div className="group relative aspect-[395/485] w-full overflow-hidden rounded-md bg-black shadow-md transition-transform duration-300 sm:rounded-lg sm:hover:scale-[1.02]">
-      <div className="absolute left-0 top-0 z-20 h-full w-3 bg-black/90 sm:w-4">
+    <div
+      className="group relative aspect-[395/485] w-full overflow-hidden rounded-md shadow-md transition-transform duration-300 sm:rounded-lg sm:hover:scale-[1.02]"
+      style={{ backgroundColor: stockColor }}
+    >
+      <div
+        className="absolute left-0 top-0 z-20 h-full w-3 sm:w-4"
+        style={{ backgroundColor: stockColor }}
+      >
         <div className="absolute left-1/2 top-2 -translate-x-1/2 font-bold tracking-[0.18em] text-[8px] text-zinc-400 opacity-80 [writing-mode:vertical-rl] sm:top-3 sm:tracking-[0.2em] sm:text-[9px]">
           {card.type.toUpperCase()}
         </div>
